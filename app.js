@@ -422,7 +422,9 @@ app.use((req, res, next) => {
 
 testDatabaseConection()
 
-app.listen(3100, () => { console.log("Server is running") })
+const port = process.env.port || 3100
+
+app.listen(port, () => { console.log("Server is running") })
 
 
 // app.get("/search", (req, res) => {
