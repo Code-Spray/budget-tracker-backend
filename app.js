@@ -183,7 +183,7 @@ app.post("/create-user", async (req, res) => {
         const addingResult = await con.query(insertq, values)
         try {
             const newUserId = addingResult.rows[0].id
-            let token = jwt.sign({ id: newUserId, roll: "normalUser" }, process.env.secret, { expiresIn: "15m" })
+            let token = jwt.sign({ id: newUserId, roll: "normalUser" }, process.env.secret, { expiresIn: "1h" })
             console.log({
                 "what's added": addingResult.rows,
                 "JWT": token
@@ -252,7 +252,7 @@ app.post("/log-in", async (req, res) => {
     }
 
     try {
-        let token = jwt.sign({ "id": id, "roll": "normalUser" }, process.env.secret, { expiresIn: "15m" })
+        let token = jwt.sign({ "id": id, "roll": "normalUser" }, process.env.secret, { expiresIn: "1h" })
         console.log({
             "message": "welcome to your Budget Tracker",
             "JWT": token
