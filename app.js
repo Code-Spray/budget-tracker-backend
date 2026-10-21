@@ -44,7 +44,7 @@ async function testDatabaseConection() {
         console.log(result.rows)
         console.log("the conection is good")
     } catch (error) {
-        console.log("there is an error in the conection")
+        console.log("there is an error in the conection : ",error)
     }
 }
 
@@ -420,9 +420,10 @@ app.use((req, res, next) => {
     res.status(404).send({ message: "the endpoint doesn't exist" })
 })
 
+testDatabaseConection()
+
 app.listen(3100, () => { console.log("Server is running") })
 
-testDatabaseConection()
 
 // app.get("/search", (req, res) => {
 
