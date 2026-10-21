@@ -170,7 +170,7 @@ app.post("/create-user", async (req, res) => {
         }
     } catch (error) {
         console.log("Error frome the Database while checking if the user already exists: ", error)
-        res.status(500).send({ message: "Error frome the Database while checking if the user already exists: " })
+        res.status(500).send({ message:"Error frome the Database while checking if the user already exists: "})
         return
     }
 
